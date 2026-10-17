@@ -1,0 +1,420 @@
+:root {
+  color-scheme: dark;
+  --brand: #e8462a;
+  --accent: #f5a623;
+  --bg-primary: #09090b;
+  --bg-card: #18181b;
+  --border: #27272a;
+  --text-main: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --bs-body-font-family: "Barlow", sans-serif;
+  --bs-body-bg: var(--bg-primary);
+  --bs-body-color: var(--text-main);
+  --bs-border-color: var(--border);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg-primary: #fafafa;
+  --bg-card: #fff;
+  --border: #e4e4e7;
+  --text-main: #18181b;
+  --text-muted: #71717a;
+  --bs-body-bg: var(--bg-primary);
+  --bs-body-color: var(--text-main);
+  --bs-border-color: var(--border);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { min-height: 100vh; background: var(--bg-primary); color: var(--text-main); transition: background .25s, color .25s; }
+a { color: inherit; }
+.display-heading, .brand-name, .instrument-card h3, .lesson-card h2, .lesson-card h3, .lesson-card h4, .path-step h2 { font-family: "Bebas Neue", sans-serif; letter-spacing: .045em; }
+.text-brand, .section-heading h2 span, .display-heading span { color: var(--brand); }
+.text-accent { color: var(--accent) !important; }
+.site-nav { background: color-mix(in srgb, var(--bg-card) 95%, transparent); border-bottom: 1px solid var(--border); backdrop-filter: blur(14px); }
+.site-nav.navbar-scrolled { box-shadow: 0 4px 30px rgba(0,0,0,.28); }
+.site-nav .navbar-brand, .site-nav .nav-link { color: var(--text-main); }
+.site-nav .nav-link { border-radius: .5rem; font-weight: 600; }
+.site-nav .nav-link:hover, .site-nav .nav-link.active { color: #fff; background: var(--brand); }
+@media (max-width: 991.98px) {
+  .site-nav .navbar-toggler .fa-bars { color: #df3e08; font-size: 1.25rem; }
+  .site-nav #main-navigation {
+    margin-top: .75rem;
+    padding: .75rem;
+    border-radius: .75rem;
+    background: #000000b7;
+
+  }
+  .site-nav #main-navigation .nav-link:not(.active) { color: #d6d0cd; }
+}
+.theme-button { width: 2.5rem; height: 2.5rem; border: 1px solid var(--border); border-radius: 50%; color: var(--text-main); background: var(--bg-card); }
+.site-footer { margin-top: 4rem; padding: 3.5rem 0 1.5rem; background: var(--bg-card); border-top: 1px solid var(--border); }
+.site-footer p, .site-footer li, .site-footer .footer-link { color: var(--text-muted); }
+.footer-link { text-decoration: none; display: block; margin: .45rem 0; }
+.footer-link:hover { color: var(--brand) !important; }
+.footer-social { display: flex; gap: .7rem; margin-top: 1.2rem; }
+.footer-social a { display: grid; place-items: center; width: 2.3rem; height: 2.3rem; border-radius: 50%; background: var(--border); color: var(--text-muted); }
+.footer-social a:hover { background: var(--brand); color: white; }
+.hero { min-height: 38rem; display: flex; align-items: center; overflow: hidden; }
+.hero-home { background: radial-gradient(ellipse at 5% 5%, rgba(232,70,42,.24), transparent 55%), radial-gradient(ellipse at 90% 95%, rgba(245,166,35,.12), transparent 55%), var(--bg-primary); }
+.hero-title { font-size: clamp(4rem, 10vw, 7rem); line-height: .9; margin: 1rem 0 1.5rem; }
+.eyebrow { color: var(--brand); font-size: .78rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; margin-bottom: .8rem; }
+.lead-copy { color: var(--text-muted); font-size: 1.15rem; max-width: 42rem; line-height: 1.65; }
+.hero-art { position: relative; color: rgba(232,70,42,.18); font-size: clamp(12rem, 24vw, 18rem); line-height: 1; filter: drop-shadow(0 0 3rem rgba(232,70,42,.15)); }
+.guitar-shadow { position: absolute; inset: 0; color: rgba(232,70,42,.05); transform: rotate(-15deg) translate(1.2rem,-1rem); }
+.btn-brand, .btn-outline-brand, .btn-piano, .btn-outline-piano { padding: .75rem 1.35rem; font-weight: 700; text-decoration: none; }
+.btn-brand { --bs-btn-bg: var(--brand); --bs-btn-border-color: var(--brand); --bs-btn-hover-bg: #c73a21; --bs-btn-hover-border-color: #c73a21; --bs-btn-color: #fff; --bs-btn-hover-color: #fff; }
+.btn-outline-brand { color: var(--brand); border: 2px solid var(--brand); }
+.btn-outline-brand:hover { color: #fff; background: var(--brand); }
+.stats-strip { padding: 2rem 0; background: var(--bg-card); border-block: 1px solid var(--border); }
+.stats-strip strong, .stats-strip span { display: block; }
+.stats-strip strong { font: 2.6rem "Bebas Neue", sans-serif; }
+.stats-strip span { color: var(--text-muted); font-size: .9rem; }
+.stat-icon { display: block; color: var(--brand); font-size: 1.4rem; margin-bottom: .3rem; }
+.section-space { padding: 5rem 0; }
+.section-heading { margin-bottom: 2.5rem; }
+.section-heading h2, .section-title { font-size: clamp(2.5rem, 6vw, 3.5rem); }
+.section-heading p { color: var(--text-muted); }
+.card { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-main); border-radius: .8rem; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.card:hover { transform: translateY(-4px); border-color: var(--brand); box-shadow: 0 1.25rem 2.5rem rgba(232,70,42,.12); }
+.instrument-card { display: block; padding: 1.7rem; text-decoration: none; }
+.instrument-icon { display: inline-grid; place-items: center; width: 3.5rem; height: 3.5rem; border-radius: .8rem; margin-bottom: 1.2rem; color: var(--instrument-color, var(--brand)); background: color-mix(in srgb, var(--instrument-color, var(--brand)) 15%, transparent); font-size: 1.5rem; }
+.small-icon { width: 2.7rem; height: 2.7rem; margin: 0; font-size: 1rem; }
+.instrument-card h3 { font-size: 1.8rem; }
+.instrument-card p, .lesson-card p { color: var(--text-muted); }
+.card-link { color: var(--brand); font-size: .8rem; font-weight: 700; }
+.card-link i { margin-left: .3rem; transition: transform .2s; }
+.instrument-card:hover .card-link i { transform: translateX(.25rem); }
+.page-hero { padding: 4rem 0 3.5rem; background: var(--bg-primary); border-bottom: 1px solid var(--border); }
+.page-hero .display-heading { font-size: clamp(3.5rem, 8vw, 5rem); line-height: 1; margin: .5rem 0 1rem; }
+.page-hero .lead-copy { max-width: 44rem; }
+.hero-gradient { background: radial-gradient(ellipse at top left, rgba(232,70,42,.2), transparent 60%), var(--bg-primary); }
+.guitar-page-hero {
+  background:
+    radial-gradient(ellipse at 95% 100%, rgba(245,166,35,.1), transparent 48%),
+    radial-gradient(ellipse at 5% 0%, rgba(232,70,42,.2), transparent 55%),
+    var(--bg-primary);
+}
+.guitar-hero-kicker { display: flex; align-items: center; gap: 1.3rem; margin-bottom: .8rem; }
+.guitar-hero-kicker .eyebrow { margin: 0; }
+.guitar-hero-icon {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: .9rem;
+  background: color-mix(in srgb, var(--brand) 22%, transparent);
+  color: var(--brand);  
+  font-size: 1.5rem;
+}
+.guitar-hero-kicker { display: flex; align-items: center; gap: 1.3rem; margin-bottom: .8rem; }
+.guitar-hero-kicker .eyebrow { margin: 0; }
+.piano-hero-icon {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: .9rem;
+  color:  #60a5fa;
+  /* background:rgb(85, 145, 205); */
+  background: #1d4fd865;
+  font-size: 1.5rem;
+}
+.guitar-hero-kicker { display: flex; align-items: center; gap: 1.3rem; margin-bottom: .8rem; }
+.guitar-hero-kicker .eyebrow { margin: 0; }
+.drum-hero-icon {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: .9rem;
+  color:  #a78bfa;
+  background: #a78bfa4a;
+  font-size: 1.5rem;
+}
+.guitar-hero-kicker { display: flex; align-items: center; gap: 1.3rem; margin-bottom: .8rem; }
+.guitar-hero-kicker .eyebrow { margin: 0; }
+.contact-hero-icon {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: .9rem;
+  background: color-mix(in srgb, var(--brand) 22%, transparent);
+  color: var(--brand);
+  font-size: 1.5rem;
+}
+.guitar-art { position: relative; padding: 2rem 0; }
+.guitar-art-icon {
+  display: grid;
+  min-height: 10rem;
+  place-items: center;
+  color: var(--brand);
+  font-size: clamp(7rem, 18vw, 11rem);
+  filter: drop-shadow(0 1.5rem 1.5rem rgba(0, 0, 0, .35));
+  transform: rotate(-12deg);
+}
+.guitar-art-accent { color: var(--brand); }
+.page-hero .guitar-page-title { margin: .5rem 0 1rem; }
+.page-hero .guitar-page-description { margin-bottom: 0; }
+.lesson-card { padding: 1.5rem; }
+.lesson-card h2, .lesson-card h3, .lesson-card h4 { font-size: 1.65rem; margin: 0 0 .35rem; }
+.lesson-card p:last-child { margin-bottom: 0; }
+.badge { font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; }
+.badge-beginner { background: rgba(34,197,94,.15); color: #22c55e; }
+.badge-intermediate { background: rgba(245,166,35,.15); color: #f5a623; }
+.badge-advanced { background: rgba(232,70,42,.15); color: #e8462a; }
+.chord-dots { display: flex; gap: .45rem; margin-top: 1.1rem; }
+.chord-dots::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--brand); box-shadow: 1rem 0 var(--border), 2rem 0 var(--border), 3rem 0 var(--brand), 4rem 0 var(--border), 5rem 0 var(--border); }
+.filter-bar { background: var(--bg-card); padding: 1rem 0; border-bottom: 1px solid var(--border); }
+.filter-label { color: var(--text-muted); font-size: .85rem; font-weight: 700; text-transform: uppercase; }
+.filter-button { border: 1px solid var(--border); border-radius: 50rem; padding: .4rem 1rem; background: transparent; color: var(--text-muted); font-weight: 600; font-size: .8rem; }
+.filter-button:hover, .filter-button.active { border-color: var(--brand); background: var(--brand); color: white; }
+.artist-name { color: var(--brand) !important; font-weight: 700; margin: 0 0 .65rem; }
+.empty-state { padding: 4rem 1rem; text-align: center; color: var(--text-muted); }
+.empty-state i { display: block; font-size: 3rem; opacity: .35; margin-bottom: 1rem; }
+.piano-hero { background: radial-gradient(ellipse at 15% 30%, rgba(59,130,246,.18), transparent 48%), radial-gradient(ellipse at 90% 70%, rgba(37,99,235,.13), transparent 42%), var(--bg-primary); border-bottom: 1px solid var(--border); }
+.piano-blue { color: #60a5fa !important; }
+.piano-title { font-size: clamp(4.5rem, 10vw, 6rem); line-height: .9; }
+.piano-title span { color: #60a5fa; }
+.piano-art { position: relative; padding: 2rem 0; }
+.keyboard { height: 10rem; border: .4rem solid #0f172a; border-radius: .8rem; background: repeating-linear-gradient(90deg, #eff6ff 0 9.4%, #94a3b8 9.4% 10%); box-shadow: 0 1.5rem 3rem #02061780; position: relative; transform: perspective(700px) rotateX(12deg) rotateZ(-2deg); }
+.keyboard::before { content: ""; position: absolute; inset: 0 0 auto 5%; height: 58%; width: 90%; background: repeating-linear-gradient(90deg, transparent 0 10.5%, #111827 10.5% 14%, transparent 14% 24%); }
+.music-note { position: absolute; right: 12%; top: -.4rem; color: #60a5fa; font-size: 3rem; z-index: 1; }
+.learning-path { padding: 2.5rem 0; background: var(--bg-card); border-bottom: 1px solid var(--border); }
+.path-step { display: flex; gap: 1rem; }
+.path-icon { display: grid; place-items: center; flex: 0 0 2.7rem; width: 2.7rem; height: 2.7rem; border-radius: 50%; color: #60a5fa; background: rgba(59,130,246,.15); }
+.path-number { color: #60a5fa; font-size: .75rem; font-weight: 700; letter-spacing: .1em; }
+.path-step h2 { font-size: 1.4rem; margin: .1rem 0; }
+.path-step p { color: var(--text-muted); font-size: .9rem; margin: 0; }
+.level-heading { font: 1.8rem "Bebas Neue", sans-serif; margin: 2.5rem 0 1rem; }
+.level-heading small { color: var(--text-muted); font: .75rem "Barlow", sans-serif; margin-left: .4rem; }
+.level-beginner { color: #22c55e; }.level-intermediate { color: var(--accent); }.level-advanced { color: var(--brand); }
+.lesson-meta { display: flex; justify-content: space-between; color: var(--text-muted); font-size: .78rem; margin-bottom: 1.3rem; }
+.lesson-meta span:first-child { font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+.piano-cta { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 2.5rem; border-radius: 1rem; background: linear-gradient(115deg, #172554, #1d4ed8); }
+.piano-cta .eyebrow { color: #bfdbfe; }
+.piano-cta h2 { color: white; font-size: clamp(2.2rem, 5vw, 3.3rem); }
+.piano-cta p:last-child { color: #bfdbfe; margin: 0; }
+.btn-piano { background: linear-gradient(115deg, #172554, #1d4ed8); color: #fff; }
+.btn-outline-piano { color: #60a5fa; border: 2px solid #60a5fa; }
+.btn-outline-piano:hover { background: #2563eb; color: white; }
+.drum-purple { color: #a78bfa !important; }
+.drum-tag { color: #a78bfa !important; background: rgba(139,92,246,.15); padding: .25rem .7rem; border-radius: 2rem; }
+.beat-bars { display: flex; align-items: end; gap: .25rem; height: 2rem; margin-top: 1.4rem; }
+.beat-bars i { flex: 1; height: 50%; background: rgba(139,92,246,.45); border-radius: 2px; }
+.beat-bars i:nth-child(4n+1) { height: 100%; background: #8b5cf6; }.beat-bars i:nth-child(3n) { height: 75%; }
+.drum-card { --brand: #8b5cf6; }
+.contact-card { padding: 2rem; }
+.form-label { color: var(--text-muted); font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+.form-control { background: var(--bg-card); border-color: var(--border); color: var(--text-main); }
+.form-control:focus { background: var(--bg-card); color: var(--text-main); border-color: var(--brand); box-shadow: 0 0 0 .2rem rgba(232,70,42,.15); }
+.form-control::placeholder { color: #71717a; }
+.contact-detail { display: flex; gap: 1rem; margin: 1.5rem 0; }
+.contact-detail > span { display: grid; place-items: center; flex: 0 0 2.6rem; height: 2.6rem; border-radius: .6rem; color: var(--brand); background: rgba(232,70,42,.15); }
+.contact-detail small { color: var(--text-muted); text-transform: uppercase; font-size: .72rem; font-weight: 700; letter-spacing: .08em; }
+.contact-detail p { margin: .25rem 0 0; }
+[data-theme="light"] .site-nav .nav-link:not(.active):hover { color: var(--text-main); background: var(--border); }
+[data-theme="light"] .site-nav.navbar-scrolled { box-shadow: 0 4px 30px rgba(0,0,0,.1); }
+
+@media (max-width: 767.98px) {
+  .hero { min-height: 34rem; }
+  .section-space { padding: 3.5rem 0; }
+  .piano-cta { align-items: flex-start; flex-direction: column; padding: 1.7rem; }
+  .contact-card { padding: 1.25rem; }
+}
+
+/* Guitar */
+.guitar-demo {
+  --demo-panel: #11171e;
+  --demo-border: #27313b;
+  --demo-muted: #7f8a96;
+  --demo-orange: #e77943;
+  --demo-green: #7ed29a;
+  --demo-red: #e56868;
+  padding: 3rem 0;
+}
+.guitar-demo .family {
+  padding: 1rem;
+  border: 1px solid var(--demo-border);
+  border-radius: .5rem;
+  background: var(--demo-panel);
+}
+.guitar-demo .family-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.guitar-demo .family-head h1,
+.guitar-demo .family-head p { margin: 0; }
+.guitar-demo .family-head h1 { font-size: 1.2rem; }
+.guitar-demo .family-head p { margin-top: .25rem; color: var(--demo-muted); }
+.guitar-demo .keys { display: flex; align-items: center; flex-wrap: wrap; gap: .4rem; }
+.guitar-demo .key-btn,
+.piano-demo .key-btn {
+  padding: .4rem .7rem;
+  border: 1px solid #303a44;
+  border-radius: .3rem;
+  background: transparent;
+  color: #a0a9b2;
+  font-size: .8rem;
+  font-weight: 700;
+}
+.guitar-demo .key-btn:hover,
+.piano-demo .key-btn:hover { background: #1c252f; color: #fff; }
+.guitar-demo .key-btn.active,
+.piano-demo .key-btn.active { border-color: var(--demo-orange); background: var(--demo-orange); color: #0d1319; }
+.guitar-demo .key-btn.all,
+.piano-demo .key-btn.all { color: var(--demo-green); border-color: #2d5a3f; }
+.guitar-demo .family-grid,
+.piano-demo .family-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.guitar-demo .chord-card,
+.piano-demo .chord-card {
+  position: relative;
+  min-width: 0;
+  padding: .75rem;
+  overflow: hidden;
+  border: 1px solid var(--demo-border);
+  border-radius: .45rem;
+  background: linear-gradient(145deg, rgba(255,255,255,.025), transparent 50%), var(--demo-panel);
+  box-shadow: 0 5px 15px rgba(0,0,0,.15);
+  transition: border-color .15s;
+}
+.guitar-demo .chord-card::before,
+.piano-demo .chord-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--accent);
+  content: "";
+  opacity: .7;
+}
+.guitar-demo .chord-card.playing,
+.piano-demo .chord-card.playing { border-color: var(--accent); }
+.guitar-demo .card-top,
+.piano-demo .card-top { display: flex; justify-content: space-between; align-items: center; gap: .4rem; }
+.guitar-demo .roman,
+.piano-demo .roman { color: var(--accent); font: 1rem Georgia, serif; }
+.guitar-demo .tag,
+.piano-demo .tag { padding: .1rem .3rem; border: 1px solid var(--accent); border-radius: .2rem; color: var(--accent); font-size: .6rem; font-weight: 800; text-transform: uppercase; }
+.guitar-demo .chord-name,
+.piano-demo .chord-name { margin-top: .4rem; font: 1.25rem/1 Georgia, serif; }
+.guitar-demo .diagram,
+.piano-demo .diagram { margin-top: .6rem; padding: .3rem; border: 1px solid #222d37; border-radius: .25rem; background: #0d1319; cursor: pointer; }
+.guitar-demo .diagram svg,
+.piano-demo .diagram svg { display: block; width: 100%; height: auto; }
+.guitar-demo .d-string { stroke: #5b6874; stroke-width: 1; transition: stroke .25s, stroke-width .25s; }
+.guitar-demo .d-string.ring { stroke: var(--accent); stroke-width: 2.2; }
+.guitar-demo .d-fret { stroke: #35414c; stroke-width: 1; }
+.guitar-demo .d-nut { stroke: #9aa6b0; stroke-width: 3.5; }
+.guitar-demo .d-dot { fill: var(--accent); }
+.guitar-demo .d-barre { stroke: var(--accent); stroke-width: 9; stroke-linecap: round; }
+.guitar-demo .d-open { fill: none; stroke: var(--demo-green); stroke-width: 1.3; }
+.guitar-demo .d-mute { stroke: var(--demo-red); stroke-width: 1.4; stroke-linecap: round; }
+.guitar-demo .d-label { fill: #8b97a3; font-size: 9px; font-weight: 700; }
+.guitar-demo .d-str { fill: #596572; font-size: 7px; text-anchor: middle; }
+.guitar-demo .card-bottom,
+.piano-demo .card-bottom { display: flex; justify-content: flex-end; align-items: center; gap: .4rem; margin-top: .5rem; }
+.guitar-demo .play,
+.piano-demo .play {
+  padding: .2rem .45rem;
+  border: 1px solid #303a44;
+  border-radius: .25rem;
+  background: transparent;
+  color: #a0a9b2;
+  font-size: .65rem;
+  text-transform: uppercase;
+}
+.guitar-demo .play:hover,
+.piano-demo .play:hover { border-color: var(--accent); background: #1c252f; color: #fff; }
+.guitar-demo .orange,
+.piano-demo .orange { --accent: #e77943; }
+.guitar-demo .green,
+.piano-demo .green { --accent: #72c98e; }
+.guitar-demo .yellow,
+.piano-demo .yellow { --accent: #d6b74c; }
+.guitar-demo .blue,
+.piano-demo .blue { --accent: #6da8d7; }
+.guitar-demo .red,
+.piano-demo .red { --accent: #dd6767; }
+
+
+
+/* Piano */
+.piano-demo { --demo-panel: #11171e; --demo-border: #27313b; --demo-orange: #e77943; --demo-green: #7ed29a; padding: 3rem 0; }
+.piano-demo .family { padding: 1rem; border: 1px solid var(--demo-border); border-radius: .5rem; background: var(--demo-panel); }
+.piano-demo .family-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
+.piano-demo .family-head h1,
+.piano-demo .family-head p { margin: 0; }
+.piano-demo .family-head h1 { font-size: 1.2rem; }
+.piano-demo .family-head p { margin-top: .25rem; color: #7f8a96; }
+.piano-demo .keys { display: flex; align-items: center; flex-wrap: wrap; gap: .4rem; }
+.piano-demo .family-grid { gap: .7rem; }
+.piano-demo .w { fill: #e6eaee; stroke: #0d1319; stroke-width: .8; }
+.piano-demo .b { fill: #171f27; stroke: #05080b; stroke-width: .6; }
+.piano-demo .w.on,
+.piano-demo .b.on { fill: var(--accent); }
+.piano-demo .w.hit,
+.piano-demo .b.hit { fill: #fff; }
+.piano-demo .c-label { fill: #7f8a96; font-size: 5px; text-anchor: middle; pointer-events: none; }
+.piano-demo .w.on + .c-label { fill: #0d1319; }
+.piano-demo .notes { color: #8b97a3; font-size: .65rem; letter-spacing: .05em; }
+
+/* Drum */
+.drum-demo {
+  --drum-panel: #10131a;
+  --drum-card: #0e1117;
+  --drum-line: #252a35;
+  --drum-muted: #7d8596;
+  --drum-off: #1b202b;
+  padding: 3rem 0;
+  color: #e8eaf0;
+  font: 14px system-ui, sans-serif;
+}
+.drum-demo .wrap { max-width: 1250px; margin: auto; padding: 1.4rem; border: 1px solid var(--drum-line); border-radius: .8rem; background: var(--drum-panel); }
+.drum-demo .drum-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .8rem; margin-bottom: 1.1rem; }
+.drum-demo h1 { margin: 0; font-size: 1.2rem; letter-spacing: .06em; }
+.drum-demo .sub { margin-top: .25rem; color: var(--drum-muted); font-size: .8rem; }
+.drum-demo .ctl { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; }
+.drum-demo .chip,
+.drum-demo .fam { padding: .45rem .8rem; border: 1px solid var(--drum-line); border-radius: .35rem; background: var(--drum-off); color: #e8eaf0; font-weight: 700; }
+.drum-demo .chip.on { border-color: #d9784a; background: #d9784a; color: #fff; }
+.drum-demo .fam { border-color: #2f7a4a; background: #14301f; color: #6fd18f; }
+.drum-demo .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: .9rem; }
+.drum-demo .card { --c: #d9784a; padding: .9rem; border: 1px solid var(--drum-line); border-left: 4px solid var(--c); border-radius: .6rem; background: var(--drum-card); color: #e8eaf0; }
+.drum-demo .card.act { box-shadow: 0 0 0 1px var(--c); }
+.drum-demo .top { display: flex; justify-content: space-between; }
+.drum-demo .num { color: var(--c); font: 1.1rem Georgia, serif; }
+.drum-demo .tag { border: 1px solid var(--c); border-radius: .25rem; color: var(--c); font-size: .6rem; font-weight: 700; }
+.drum-demo .name { margin: .15rem 0 .6rem; font: 1.25rem Georgia, serif; }
+.drum-demo .seq { padding: .6rem .45rem .4rem; border: 1px solid var(--drum-line); border-radius: .45rem; background: var(--drum-panel); }
+.drum-demo .row { display: grid; grid-template-columns: 26px repeat(16, minmax(0, 1fr)); align-items: center; gap: 2px; margin-bottom: 3px; }
+.drum-demo .row span.l { color: var(--drum-muted); font-size: .55rem; font-weight: 700; }
+.drum-demo .s { aspect-ratio: 1; border-radius: 3px; background: var(--drum-off); }
+.drum-demo .s.b4 { background: #343a46; }
+.drum-demo .s.on { background: var(--c); }
+.drum-demo .s.cur { outline: 2px solid #e8eaf0; outline-offset: -1px; }
+.drum-demo .foot { display: flex; justify-content: space-between; align-items: center; gap: .5rem; margin-top: .6rem; }
+.drum-demo .foot small { color: var(--drum-muted); font-size: .7rem; }
+.drum-demo .play { padding: .3rem .55rem; border: 1px solid var(--drum-line); border-radius: .3rem; background: var(--drum-off); color: var(--drum-muted); font-size: .7rem; font-weight: 700; }
+.drum-demo .play:hover { color: #fff; }
+
+@media (max-width: 760px) {
+  .piano-demo .family-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .guitar-demo .family-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .piano-demo .family-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 390px) {
+  .guitar-demo .family-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 575.98px) {
+  .drum-demo .wrap { padding: .8rem; }
+}

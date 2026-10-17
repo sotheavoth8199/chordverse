@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guitar Solos | GuitarVerse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main>
+    <section class="page-hero hero-gradient"><div class="container">
+      <p class="eyebrow text-accent"><i class="fa-solid fa-star me-2"></i>Guitar</p>
+      <h1 class="display-heading">GUITAR <span>SOLOS</span></h1>
+      <p class="lead-copy">Learn the greatest guitar solos ever recorded. Tab-accurate, technique-focused breakdowns.</p>
+    </div></section>
+    <section class="filter-bar"><div class="container d-flex align-items-center flex-wrap gap-2">
+      <span class="filter-label me-2">Filter:</span>
+      <button class="filter-button active" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter-button" data-filter="Beginner" aria-pressed="false">Beginner</button>
+      <button class="filter-button" data-filter="Intermediate" aria-pressed="false">Intermediate</button>
+      <button class="filter-button" data-filter="Advanced" aria-pressed="false">Advanced</button>
+      <span class="ms-auto small text-secondary" id="solo-count" aria-live="polite">5 solos found</span>
+    </div></section>
+    <section class="section-space"><div class="container">
+      <div class="row g-4" id="solo-grid">
+        <div class="col-md-6 col-lg-4 solo-item" data-difficulty="Advanced"><article class="card lesson-card h-100"><div class="d-flex justify-content-between mb-3"><span class="instrument-icon small-icon"><i class="fa-solid fa-guitar"></i></span><span class="badge badge-advanced">Advanced</span></div><h2>Comfortably Numb Solo</h2><p class="artist-name">Pink Floyd</p><p>David Gilmour's legendary emotional solo, one of the greatest in rock history.</p></article></div>
+        <div class="col-md-6 col-lg-4 solo-item" data-difficulty="Advanced"><article class="card lesson-card h-100"><div class="d-flex justify-content-between mb-3"><span class="instrument-icon small-icon"><i class="fa-solid fa-guitar"></i></span><span class="badge badge-advanced">Advanced</span></div><h2>Stairway to Heaven Solo</h2><p class="artist-name">Led Zeppelin</p><p>Jimmy Page's iconic ascending masterpiece that defined an era.</p></article></div>
+        <div class="col-md-6 col-lg-4 solo-item" data-difficulty="Intermediate"><article class="card lesson-card h-100"><div class="d-flex justify-content-between mb-3"><span class="instrument-icon small-icon"><i class="fa-solid fa-guitar"></i></span><span class="badge badge-intermediate">Intermediate</span></div><h2>Hotel California Solo</h2><p class="artist-name">Eagles</p><p>Dual-guitar harmony solo by Don Felder and Joe Walsh.</p></article></div>
+        <div class="col-md-6 col-lg-4 solo-item" data-difficulty="Beginner"><article class="card lesson-card h-100"><div class="d-flex justify-content-between mb-3"><span class="instrument-icon small-icon"><i class="fa-solid fa-guitar"></i></span><span class="badge badge-beginner">Beginner</span></div><h2>Smoke on the Water Riff</h2><p class="artist-name">Deep Purple</p><p>The most recognizable riff in rock music history.</p></article></div>
+        <div class="col-md-6 col-lg-4 solo-item" data-difficulty="Intermediate"><article class="card lesson-card h-100"><div class="d-flex justify-content-between mb-3"><span class="instrument-icon small-icon"><i class="fa-solid fa-guitar"></i></span><span class="badge badge-intermediate">Intermediate</span></div><h2>Nothing Else Matters Solo</h2><p class="artist-name">Metallica</p><p>Kirk Hammett's melodic yet powerful solo from the Black Album.</p></article></div>
+      </div>
+      <div id="solo-empty" class="empty-state d-none"><i class="fa-solid fa-guitar"></i><p>No solos found for this filter.</p><button class="btn btn-outline-brand" data-filter="all">View All</button></div>
+    </div></section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
