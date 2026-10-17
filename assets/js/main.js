@@ -71,18 +71,71 @@ function initSoloFilters() {
 function initContactForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     form.classList.add("was-validated");
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
+
     const feedback = document.getElementById("contact-feedback");
-    if (feedback) {
-      feedback.className = "alert alert-warning";
-      feedback.textContent = "Your message is ready, but this static site has no server configured to send or save it. Please email hello@guitarverse.com.";
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonContent = submitButton?.innerHTML;
+    const formData = new FormData(form);
+    const subject = String(formData.get("subject") || "").trim();
+    formData.append("_subject", subject || "New message from the contact form");
+
+    const showFeedback = (message, type) => {
+      if (!feedback) return;
+      feedback.className = `alert alert-${type}`;
+      feedback.textContent = message;
       feedback.scrollIntoView({ behavior: "smooth", block: "center" });
+    };
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+    }
+
+    try {
+      let response;
+      try {
+        response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" },
+        });
+      } catch {
+        showFeedback("We couldn't connect to the email service. Please try again or email sotheavothtann@gmail.com directly.", "danger");
+        return;
+      }
+
+      let result;
+      try {
+        result = await response.json();
+      } catch {
+        showFeedback("The email service returned an unexpected response. Please try again or email sotheavothtann@gmail.com directly.", "danger");
+        return;
+      }
+
+      const succeeded = result && (result.success === true || result.success === "true");
+      if (!response.ok || !succeeded) {
+        const errorMessage = result && typeof result.message === "string"
+          ? result.message
+          : "Your message could not be sent.";
+        showFeedback(`${errorMessage} Please try again or email sotheavothtann@gmail.com directly.`, "danger");
+        return;
+      }
+
+      form.reset();
+      form.classList.remove("was-validated");
+      showFeedback("Thanks for reaching out! Your message has been sent.", "success");
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonContent;
+      }
     }
   });
 }
